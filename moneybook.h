@@ -3,8 +3,8 @@ typedef struct{
 	char name[20]; // 이름
 	int price; // 가격
 	char kategorie[256]; // 카테고리
-	char content[256]; // 비고
-} moneybook; 
+	char content[256]; // 비고(필요시 추가)
+} moneybook;
 
 int selectMenu();
 
