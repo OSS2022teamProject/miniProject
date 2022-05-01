@@ -2,7 +2,7 @@ typedef struct{
 	char plusMinus; // 수입/지출 (수입:+ / 지출:-)
 	char name[20]; // 이름
 	int price; // 가격
-	char kategorie[256]; // 카테고리
+	char category[256]; // 카테고리
 	char fix; // 고정/변동(y/n)
 } moneybook;
 
