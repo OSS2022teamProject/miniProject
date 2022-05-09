@@ -24,26 +24,31 @@ int selectMenu(){
 // 전체 가계부 상태 출력 (sum출력 필요)
 void listBook(moneybook *m, int count){
     int i = 0;
-    printf("No. 카테고리 항목명 가격 고정/변동 수입/지출\n");
+    int sum=0;
+    printf("No. 카테고리  항목명   가격  고정/변동  수입/지출\n");
     printf("---------------------------------------------------\n");
     for (i = 0; i < count; i++){
         if (m[i].price == -1) continue;
         printf("%d ", i + 1);
         readBook(m[i]);
+        if(!strcmp(m[i].plusMinus,"+"))
+            sum+=m[i].price;
+        else
+            sum-=m[i].price;
     }
-    printf("\n");
+    printf("sum: %d\n",sum);
 }
 
 // 하나의 항목 출력
 void readBook(moneybook m){
-    printf("%s %s %d %s %s\n", m.category, m.name, m.price, m.fix, m.plusMinus);
+    printf("  %-12s%-10s%  -10d%-10s%-10s\n", m.category, m.name, m.price, m.fix, m.plusMinus);
 }
 
 // 항목 번호 검색
 int selectDataNo(moneybook* m, int count){
     int no;
     listBook(m, count);
-    printf("번호(취소 : 0) : ");
+    printf("\n번호(취소 : 0) : ");
     scanf("%d", &no);
     return no;
 }
@@ -60,6 +65,7 @@ int createBook(moneybook *m){
     scanf(" %[^\n]", m->fix);
     printf("수입/지출 [+/-] : ");
     scanf(" %[^\n]", m->plusMinus);
+    printf("==>추가됨!\n");
     return 1;
 }
 
@@ -72,9 +78,9 @@ int updateBook(moneybook *m){
     printf("금액 : ");
     scanf(" %d", &m->price);
     printf("고정/변동 [y/n]: ");
-    scanf(" %[^\n]", m->fix);
+    scanf("%s", m->fix);
     printf("수입/지출 [+/-] : ");
-    scanf(" %[^\n]", m->plusMinus);
+    scanf("%s", m->plusMinus);
     return 1;
 }
 
@@ -83,3 +89,4 @@ int deleteBook(moneybook *m){
     m->price = -1;
     return 1;
 }
+
