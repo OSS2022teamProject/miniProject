@@ -76,6 +76,86 @@ int createBook(moneybook *m){
     return 1;
 }
 
+// 항목 이름 검색
+void searchBook(moneybook *m, int count){
+    char bname[20];
+    int scnt = 0;
+    printf("검색할 항목 이름 : ");
+    scanf(" %s", bname);
+    printf("No. 카테고리 항목명 가격 고정/변동[y/n] 수입/지출[+/-]\n");
+    printf("---------------------------------------------------\n");
+    for(int i = 0; i < count; i++){
+        if(m[i].price == -1) continue;
+        if(strstr(m[i].name, bname)){
+            printf("%2d ",i + 1);
+            readBook(m[i]);
+            scnt ++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
+}
+
+// 제품 가격 검색
+void searchCategory(moneybook *m, int count){
+    char cname[256];
+    int scnt = 0;
+    printf("검색할 카테고리 : ");
+    scanf(" %s", cname);
+    printf("No. 카테고리 항목명 가격 고정/변동[y/n] 수입/지출[+/-]\n");
+    printf("---------------------------------------------------\n");
+    for(int i = 0; i < count; i++){
+        if(m[i].price == -1) continue;
+        if(strstr(m[i].category, cname)){
+            printf("%2d ",i + 1);
+            readBook(m[i]);
+            scnt ++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
+}
+
+// 고정/변동 검색
+void searchFix(moneybook *m, int count){
+    char fname[5];
+    int scnt = 0;
+    printf("고정/변동[y/n] : ");
+    scanf(" %s", fname);
+    printf("No. 카테고리 항목명 가격 고정/변동[y/n] 수입/지출[+/-]\n");
+    printf("---------------------------------------------------\n");
+    for(int i = 0; i < count; i++){
+        if(m[i].price == -1) continue;
+        if(strstr(m[i].fix, fname)){
+            printf("%2d ",i + 1);
+            readBook(m[i]);
+            scnt ++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
+}
+
+// 수입/지출 검색
+void searchPlusMinus(moneybook *m, int count){
+    char Pmname[5];
+    int scnt = 0;
+    printf("수입/지출[+/-] : ");
+    scanf(" %s", Pmname);
+    printf("No. 카테고리 항목명 가격 고정/변동[y/n] 수입/지출[+/-]\n");
+    printf("---------------------------------------------------\n");
+    for(int i = 0; i < count; i++){
+        if(m[i].price == -1) continue;
+        if(strstr(m[i].plusMinus, Pmname)){
+            printf("%2d ",i + 1);
+            readBook(m[i]);
+            scnt ++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
+}
+
 // 항목 수정
 int updateBook(moneybook *m){
     printf("카테고리 : ");
