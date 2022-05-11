@@ -15,7 +15,7 @@ int createBook(moneybook *m); // 항목 추가
 int updateBook(moneybook *m); // 항목 수정
 int deleteBook(moneybook *m); // 항목 삭제
 
-void sumBook(moneybook *m); // 항목 합계 계산
+void sumBook(moneybook *m, int cnt); // 항목 합계 계산
 
 int selectDataNo(moneybook *m, int count); // 항목 번호 검색
 void searchBook(moneybook *m, int count); // 항목 이름 검색
