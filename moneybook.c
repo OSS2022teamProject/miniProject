@@ -29,7 +29,6 @@ void listBook(moneybook *m, int count){
     printf("---------------------------------------------------------------------------------\n");
     for (i = 0; i < count; i++){
         if (m[i].price == -1) continue;
-        //printf("%d ", i + 1);
         printf("%2d\t ", i + 1);
         readBook(m[i]);
     }
@@ -113,7 +112,6 @@ int loadData(moneybook *m){
         }
         fclose(fp);
         printf("=> 로딩 성공!\n");
-        printf("%d\n",i);
     }
     return i;
 }
