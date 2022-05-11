@@ -9,7 +9,7 @@ int main(void){
     int index = 0;
     int count = 0;
     int menu;
-    //count = loadData(mlist);
+    count = loadData(mlist);
     index = count;
     while(1){
         menu = selectMenu();
@@ -19,38 +19,38 @@ int main(void){
         if(menu == 1) listBook(mlist, count);
         else if(menu == 2){
             count += createBook(&mlist[index++]);
+            printf("\n=> 추가됨!\n");
         }
         else if(menu == 3){
             int no = selectDataNo(mlist, index);
             if(no == 0){
-                printf("취소됨!\n");
+                printf("\n취소됨!\n");
                 continue;
             }
             int isupd = updateBook(&mlist[no-1]);
-            if(isupd == 1) printf("=> 수정성공!\n");
+            if(isupd == 1) printf("\n=> 수정성공!\n");
         }
         else if(menu == 4){
             int no = selectDataNo(mlist, count);
             if (no == 0){
-                printf("=> 취소됨!\n");
+                printf("\n=> 취소됨!\n");
                 continue;
             }
             int deleteok;
-            printf("정말로 삭제하시겠습니까?(삭제 :1) ");
+            printf("\n정말로 삭제하시겠습니까?(삭제 :1) ");
             scanf("%d",&deleteok);
             if(deleteok == 1){
                 if(deleteBook(&mlist[no-1])){
-                    printf("=> 삭제됨!\n");
+                    printf("\n=> 삭제됨!\n");
                 }
             }
         }
-        /*
         else if(menu == 5) saveData(mlist, count);
-        else if(menu == 6) searchBook(mlist, count);
-        else if(menu == 7) searchCategory(mlist, count);
-        else if(menu == 8) searchFix(mlist, count);
-        else if(menu == 9) searchPlusMinus(mlist, count); */
+        //else if(menu == 6) searchBook(mlist, count);
+        //else if(menu == 7) searchCategory(mlist, count);
+        //else if(menu == 8) searchFix(mlist, count);
+        //else if(menu == 9) searchPlusMinus(mlist, count);
     }
-    printf("종료됨!\n");
+    printf("\n종료됨!\n");
     return 0;
 }

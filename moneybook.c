@@ -108,7 +108,6 @@ int loadData(moneybook *m){
     }
     else{
         for(; i < 256; i++){
-            //fscanf(fp,"%*c%[^:]%*c%[^:]%*c%[^:]%*c%[^:]%*c%d", m[i].category, m[i].name, m[i].fix, m[i].plusMinus, &m[i].price);
             fscanf(fp," %[^:]%*c%[^:]%*c%[^:]%*c%[^:]%*c%d", m[i].category, m[i].name, m[i].fix, m[i].plusMinus, &m[i].price);
             if (feof(fp)) break;
         }
