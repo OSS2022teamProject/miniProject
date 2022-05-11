@@ -46,10 +46,10 @@ int main(void){
             }
         }
         else if(menu == 5) saveData(mlist, count);
-        //else if(menu == 6) searchBook(mlist, count);
-        //else if(menu == 7) searchCategory(mlist, count);
-        //else if(menu == 8) searchFix(mlist, count);
-        //else if(menu == 9) searchPlusMinus(mlist, count);
+        else if(menu == 6) searchBook(mlist, count);
+        else if(menu == 7) searchCategory(mlist, count);
+        else if(menu == 8) searchFix(mlist, count);
+        else if(menu == 9) searchPlusMinus(mlist, count);
     }
     printf("\n종료됨!\n");
     return 0;
