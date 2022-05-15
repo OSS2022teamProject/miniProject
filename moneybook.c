@@ -81,13 +81,13 @@ void searchBook(moneybook *m, int count){
     char bname[20];
     int scnt = 0;
     printf("검색할 항목 이름 : ");
-    scanf(" %s", bname);
-    printf("No. 카테고리 항목명 가격 고정/변동[y/n] 수입/지출[+/-]\n");
-    printf("---------------------------------------------------\n");
+    scanf(" %[^\n]", bname);
+    printf("\n%-s\t%-10s\t%-12s\t%-12s\t%-12s\t%-12s\t\n","No.", "카테고리", "항목명", "가격", "고정/변동", "수입/지출");
+    printf("---------------------------------------------------------------------------------\n");
     for(int i = 0; i < count; i++){
         if(m[i].price == -1) continue;
         if(strstr(m[i].name, bname)){
-            printf("%2d ",i + 1);
+            printf("%2d\t ", i + 1);
             readBook(m[i]);
             scnt ++;
         }
@@ -101,13 +101,13 @@ void searchCategory(moneybook *m, int count){
     char cname[256];
     int scnt = 0;
     printf("검색할 카테고리 : ");
-    scanf(" %s", cname);
-    printf("No. 카테고리 항목명 가격 고정/변동[y/n] 수입/지출[+/-]\n");
-    printf("---------------------------------------------------\n");
+    scanf(" %[^\n]", cname);
+    printf("\n%-s\t%-10s\t%-12s\t%-12s\t%-12s\t%-12s\t\n","No.", "카테고리", "항목명", "가격", "고정/변동", "수입/지출");
+    printf("---------------------------------------------------------------------------------\n");
     for(int i = 0; i < count; i++){
         if(m[i].price == -1) continue;
         if(strstr(m[i].category, cname)){
-            printf("%2d ",i + 1);
+            printf("%2d\t ", i + 1);
             readBook(m[i]);
             scnt ++;
         }
@@ -122,8 +122,8 @@ void searchFix(moneybook *m, int count){
     int scnt = 0;
     printf("고정/변동[y/n] : ");
     scanf(" %s", fname);
-    printf("No. 카테고리 항목명 가격 고정/변동[y/n] 수입/지출[+/-]\n");
-    printf("---------------------------------------------------\n");
+    printf("\n%-s\t%-10s\t%-12s\t%-12s\t%-12s\t%-12s\t\n","No.", "카테고리", "항목명", "가격", "고정/변동", "수입/지출");
+    printf("---------------------------------------------------------------------------------\n");
     for(int i = 0; i < count; i++){
         if(m[i].price == -1) continue;
         if(strstr(m[i].fix, fname)){
@@ -142,12 +142,12 @@ void searchPlusMinus(moneybook *m, int count){
     int scnt = 0;
     printf("수입/지출[+/-] : ");
     scanf(" %s", Pmname);
-    printf("No. 카테고리 항목명 가격 고정/변동[y/n] 수입/지출[+/-]\n");
-    printf("---------------------------------------------------\n");
+    printf("\n%-s\t%-10s\t%-12s\t%-12s\t%-12s\t%-12s\t\n","No.", "카테고리", "항목명", "가격", "고정/변동", "수입/지출");
+    printf("---------------------------------------------------------------------------------\n");
     for(int i = 0; i < count; i++){
         if(m[i].price == -1) continue;
         if(strstr(m[i].plusMinus, Pmname)){
-            printf("%2d ",i + 1);
+            printf("%2d\t ", i + 1);
             readBook(m[i]);
             scnt ++;
         }
